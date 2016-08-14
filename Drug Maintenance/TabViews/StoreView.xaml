@@ -1,0 +1,109 @@
+﻿<UserControl x:Class="Drug_Maintenance.TabViews.StoreView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:Drug_Maintenance="clr-namespace:Drug_Maintenance"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             
+             xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             xmlns:Converters="http://metro.mahapps.com/winfx/xaml/shared"
+             xmlns:metro="clr-namespace:MahApps.Metro;assembly=MahApps.Metro"
+             RenderOptions.ClearTypeHint="Enabled"
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="650"
+             d:DesignWidth="1333"
+             d:DataContext="{d:DesignInstance Drug_Maintenance:MainWindowViewModel}"
+             Dialog:DialogParticipation.Register="{Binding}"
+             >
+    <AdornerDecorator>
+        <Grid>
+            <Label Content="Department : " HorizontalAlignment="Left" Margin="60,20,0,0" VerticalAlignment="Top" FontSize="14"/>
+            <ComboBox x:Name="viewDep" HorizontalAlignment="Left" SelectedValuePath="Content" Margin="172,20,0,0" VerticalAlignment="Top" Width="200" FontSize="14" FontFamily="{DynamicResource {x:Static SystemFonts.MenuFontFamilyKey}}"  SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem Content="Store"/>
+                <ComboBoxItem Content="Indoor Patient Department"/>
+                <ComboBoxItem Content="Outdoor Patient Department"/>
+                <ComboBoxItem Content="Ward 01"/>
+                <ComboBoxItem Content="Ward 02"/>
+                <ComboBoxItem Content="Ward 03"/>
+                <ComboBoxItem Content="Ward 04"/>
+                <ComboBoxItem Content="Ward 05"/>
+                <ComboBoxItem Content="Ward 06"/>
+                <ComboBoxItem Content="Ward 07"/>
+                <ComboBoxItem Content="Ward 08"/>
+                <ComboBoxItem Content="Ward 09"/>
+                <ComboBoxItem Content="Ward 10"/>
+                <ComboBoxItem Content="Ward 11"/>
+                <ComboBoxItem Content="Ward 12"/>
+                <ComboBoxItem Content="Lab 01"/>
+                <ComboBoxItem Content="Lab 02"/>
+                <ComboBoxItem Content="Lab 03"/>
+                <ComboBoxItem Content="Theatre 01"/>
+                <ComboBoxItem Content="Theatre 02"/>
+                <ComboBoxItem Content="Theatre 03"/>
+            </ComboBox>
+            <DataGrid x:Name="viewStore" AutoGenerateColumns="False" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top" Width="880" Height="550" BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1" CanUserAddRows="False" CanUserDeleteRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{x:Null}" CanUserResize="False" ClipboardContentBinding="{x:Null}" Width="5"/>
+                    <DataGridTextColumn Binding="{Binding genName}" ClipboardContentBinding="{x:Null}" Header="GENETIC NAME" Width="315">
+                        <DataGridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                                    <Separator BorderThickness="2" BorderBrush="{DynamicResource AccentColorBrush}"/>
+                                    <TextBox x:Name="genNameBox" Width="275" TextAlignment="Center" TextChanged="nicBox_TextChanged" FontFamily="Segoe UI" FontSize="14" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTextColumn.HeaderTemplate>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding type}" ClipboardContentBinding="{x:Null}" Header="TYPE" Width="150">
+                        <DataGridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                                    <Separator BorderThickness="1" BorderBrush="{DynamicResource AccentColorBrush}"/>
+                                    <TextBlock Width="130"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTextColumn.HeaderTemplate>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding dosage}" ClipboardContentBinding="{x:Null}" Header="DOSAGE" Width="150">
+                        <DataGridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                                    <Separator BorderThickness="1" BorderBrush="{DynamicResource AccentColorBrush}"/>
+                                    <TextBlock Width="130"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTextColumn.HeaderTemplate>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding quantity}" ClipboardContentBinding="{x:Null}" Header="QUANTITY" Width="120">
+                        <DataGridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                                    <Separator BorderThickness="1" BorderBrush="{DynamicResource AccentColorBrush}"/>
+                                    <TextBlock Width="100"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTextColumn.HeaderTemplate>
+                    </DataGridTextColumn>                    
+                    <DataGridTextColumn Binding="{Binding expiryDate}" ClipboardContentBinding="{x:Null}" Header="EXPIRY DATE" Width="120">
+                        <DataGridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                                    <Separator BorderThickness="1" BorderBrush="{DynamicResource AccentColorBrush}"/>
+                                    <TextBlock Width="100"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTextColumn.HeaderTemplate>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="clearStoreButton" Content="CLEAR" HorizontalAlignment="Left" Margin="410,20,0,0" VerticalAlignment="Top"  Foreground="{DynamicResource AccentColorBrush}" Width="75" Click="clearStoreButton_Click" IsEnabled="False"/>
+        </Grid>
+    </AdornerDecorator>
+</UserControl>

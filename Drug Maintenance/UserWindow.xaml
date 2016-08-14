@@ -1,0 +1,149 @@
+﻿<Controls:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:Drug_Maintenance" x:Class="Drug_Maintenance.UserWindow"
+        Title="Users"
+        Height="635"
+        Width="585" 
+        WindowStartupLocation="CenterScreen"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        BorderBrush="{DynamicResource AccentColorBrush}"
+        BorderThickness="1"
+        ResizeMode="NoResize" 
+        ShowMaxRestoreButton="False" 
+        ShowMinButton="False">
+
+    <Grid>
+        <Label HorizontalAlignment="Left" Margin="47,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password :" HorizontalAlignment="Left" Margin="315,65,0,0" VerticalAlignment="Top" FontSize="16" Height="30"/>
+        <Label Content="Name :" HorizontalAlignment="Left" Margin="45,110,0,0" VerticalAlignment="Top" FontSize="16" Height="30"/>
+        <Label Content="Department :" HorizontalAlignment="Left" Margin="45,245,0,0" VerticalAlignment="Top" FontSize="16" Height="32"/>
+        <Label Content="Contact No :" HorizontalAlignment="Left" Margin="305,200,0,0" VerticalAlignment="Top" FontSize="16" Height="30"/>
+        <Label Content="Email :" HorizontalAlignment="Left" Margin="45,155,0,0" VerticalAlignment="Top" FontSize="16" Height="30"/>
+        <Label Content="User Id :" HorizontalAlignment="Left" Margin="45,20,0,0" VerticalAlignment="Top" FontSize="16" Height="30" Width="70"/>
+        <Label Content="Username :" HorizontalAlignment="Left" Margin="45,65,0,0" VerticalAlignment="Top" FontSize="16" Height="30"/>
+        <Label Content="Nic No :" HorizontalAlignment="Left" Margin="45,200,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <PasswordBox x:Name="password" HorizontalAlignment="Left" Margin="405,70,0,0" VerticalAlignment="Top" Height="25" Width="120" Controls:TextBoxHelper.ClearTextButton="True" FontFamily="Segoe UI" FontSize="14" IsEnabled="False" TabIndex="3"/>
+        <TextBox x:Name="username" HorizontalAlignment="Left" Height="25" Margin="155,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Controls:TextBoxHelper.ClearTextButton="True" FontFamily="Segoe UI" FontSize="14" IsEnabled="False" TabIndex="2"/>
+        <TextBox x:Name="uName" HorizontalAlignment="Left" Height="25" Margin="155,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="370" Controls:TextBoxHelper.ClearTextButton="True" FontFamily="Segoe UI" FontSize="14" IsEnabled="False" TabIndex="4"/>
+        <TextBox x:Name="userID" HorizontalAlignment="Left" Height="25" Margin="155,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Controls:TextBoxHelper.ClearTextButton="True" FontFamily="Segoe UI" FontSize="14" IsEnabled="False" TabIndex="0"/>
+        <TextBox x:Name="uEmail" HorizontalAlignment="Left" Height="25" Margin="155,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="370" Controls:TextBoxHelper.ClearTextButton="True" FontFamily="Segoe UI" FontSize="14" IsEnabled="False" TabIndex="5"/>
+        <TextBox x:Name="uContactNo" HorizontalAlignment="Left" Height="25" Margin="415,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Controls:TextBoxHelper.ClearTextButton="True" FontFamily="Segoe UI" FontSize="14" IsEnabled="False" TabIndex="7"/>
+        <TextBox x:Name="uNicNo" HorizontalAlignment="Left" Height="25" Margin="155,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Controls:TextBoxHelper.ClearTextButton="True" FontFamily="Segoe UI" FontSize="14" IsEnabled="False" TabIndex="6"/>
+        <ComboBox x:Name="uDep" HorizontalAlignment="Left" Margin="155,250,0,0" VerticalAlignment="Top" Width="230" Height="25" Controls:TextBoxHelper.ClearTextButton="True" FontFamily="Segoe UI" FontSize="14" IsEnabled="False" TabIndex="8" SelectedValuePath="Content" IsEditable="True">
+            <ComboBoxItem Content="ADMIN"/>
+            <ComboBoxItem Content="IPD"/>
+            <ComboBoxItem Content="OPD"/>
+            <ComboBoxItem Content="STORE"/>
+            <ComboBoxItem Content="LB01"/>
+            <ComboBoxItem Content="LB02"/>
+            <ComboBoxItem Content="LB03"/>
+            <ComboBoxItem Content="TH01"/>
+            <ComboBoxItem Content="TH02"/>
+            <ComboBoxItem Content="TH03"/>
+            <ComboBoxItem Content="WD01"/>
+            <ComboBoxItem Content="WD02"/>
+            <ComboBoxItem Content="WD03"/>
+            <ComboBoxItem Content="WD04"/>
+            <ComboBoxItem Content="WD05"/>
+            <ComboBoxItem Content="WD06"/>
+            <ComboBoxItem Content="WD07"/>
+            <ComboBoxItem Content="WD08"/>
+            <ComboBoxItem Content="WD09"/>
+            <ComboBoxItem Content="WD10"/>
+            <ComboBoxItem Content="WD11"/>
+            <ComboBoxItem Content="WD12"/>
+        </ComboBox>
+        <Controls:ToggleSwitch x:Name="uEnableCheck" OnLabel="Enable" OffLabel="Disable" HorizontalAlignment="Left" Margin="321,20,0,0" VerticalAlignment="Top" Width="120" FontSize="14" FontFamily="Segoe UI" IsEnabled="False" TabIndex="1"/>
+        <Button x:Name="addBtn" Content="Add" Margin="20,560,0,0" VerticalAlignment="Top" Width="66" Click="addBtn_Click" TabIndex="10" HorizontalAlignment="Left" Foreground="{DynamicResource AccentColorBrush}"/>
+        <Button x:Name="editBtn" Content="Edit" Margin="115,560,0,0" VerticalAlignment="Top" Width="66" Click="editBtn_Click" TabIndex="11" IsEnabled="False" HorizontalAlignment="Left" Foreground="{DynamicResource AccentColorBrush}"/>
+        <Button x:Name="saveBtn" Content="Save" Margin="210,560,0,0" VerticalAlignment="Top" Width="66" Click="saveBtn_Click" TabIndex="12" IsEnabled="False" HorizontalAlignment="Left" Foreground="{DynamicResource AccentColorBrush}"/>
+        <Button x:Name="updateBtn" Content="Update" Margin="305,560,0,0" VerticalAlignment="Top" Width="66" Click="updateBtn_Click" TabIndex="13" IsEnabled="False" HorizontalAlignment="Left" Foreground="{DynamicResource AccentColorBrush}"/>
+        <Button x:Name="deleteBtn" Content="Delete" Margin="400,560,0,0" VerticalAlignment="Top" Width="66" Click="deleteBtn_Click" TabIndex="14" IsEnabled="False" HorizontalAlignment="Left" Foreground="{DynamicResource AccentColorBrush}"/>
+        <Button x:Name="cancelBtn" Content="Cancel" Margin="495,560,0,0" VerticalAlignment="Top" Width="66" Click="cancelBtn_Click" TabIndex="15" IsEnabled="False" HorizontalAlignment="Left" Foreground="{DynamicResource AccentColorBrush}"/>
+        <Label x:Name="uidAlert" Content="" HorizontalAlignment="Left" Margin="155,0,0,0" VerticalAlignment="Top" FontSize="14" Foreground="Red"/>
+        <Label x:Name="usernameAlert" Content="" HorizontalAlignment="Left" Margin="155,45,0,0" VerticalAlignment="Top" FontSize="14" Foreground="Red"/>
+        <Label x:Name="passwordAlert" Content="" HorizontalAlignment="Left" Margin="405,45,0,0" VerticalAlignment="Top" FontSize="14" Foreground="Red"/>
+        <Label x:Name="uNameAlert" Content="" HorizontalAlignment="Left" Margin="155,90,0,0" VerticalAlignment="Top" FontSize="14" Foreground="Red"/>
+        <Label x:Name="uEmailAlert" Content="" HorizontalAlignment="Left" Margin="155,135,0,0" VerticalAlignment="Top" FontSize="14" Foreground="Red"/>
+        <Label x:Name="uNicAlert" Content="" HorizontalAlignment="Left" Margin="155,180,0,0" VerticalAlignment="Top" FontSize="14" Foreground="Red"/>
+        <Label x:Name="uContactNoAlert" Content="" HorizontalAlignment="Left" Margin="420,180,0,0" VerticalAlignment="Top" FontSize="14" Foreground="Red"/>
+        <Label x:Name="uDepAlert" Content="" HorizontalAlignment="Left" Margin="155,225,0,0" VerticalAlignment="Top" FontSize="14" Foreground="Red"/>
+
+        <DataGrid x:Name="usersDataGrid" AutoGenerateColumns="False" Margin="22,300,20,0" VerticalAlignment="Top" Width="540" HorizontalAlignment="Center" Height="220" SelectionChanged="usersDataGrid_SelectionChanged" SelectionUnit="FullRow" SelectionMode="Single" FontSize="14" CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding userID}" ClipboardContentBinding="{x:Null}" Header="ID" IsReadOnly="True" Width="70" FontSize="14" CanUserResize="False">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                                <Separator BorderThickness="2" BorderBrush="{DynamicResource AccentColorBrush}"/>
+                                <TextBox x:Name="idBox" Width="55" TextAlignment="Center" FontFamily="Segoe UI" FontSize="14" TextChanged="filterByTextInput"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding username}" ClipboardContentBinding="{x:Null}" Header="USERNAME" IsReadOnly="True" Width="95" FontSize="14">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                                <Separator BorderThickness="2" BorderBrush="{DynamicResource AccentColorBrush}"/>
+                                <TextBox x:Name="usernameBox" Width="70" TextAlignment="Center" FontFamily="Segoe UI" FontSize="14" TextChanged="filterByTextInput"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding uNicNo}" ClipboardContentBinding="{x:Null}" Header="NIC NO" IsReadOnly="True" Width="90" FontSize="14" CanUserResize="False">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                                <Separator BorderThickness="2" BorderBrush="{DynamicResource AccentColorBrush}"/>
+                                <TextBox x:Name="nicBox" Width="75" TextAlignment="Center" FontFamily="Segoe UI" FontSize="14" TextChanged="filterByTextInput"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                
+                <DataGridCheckBoxColumn Binding="{Binding uEnableCheck}" ClipboardContentBinding="{x:Null}" Header="ENABLE" IsReadOnly="True" Width="65" CanUserResize="False" ElementStyle="{DynamicResource MetroDataGridCheckBox}" EditingElementStyle="{DynamicResource MetroDataGridCheckBox}">
+                    <DataGridCheckBoxColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" Height="50">
+                                <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                                <Separator BorderThickness="2" BorderBrush="{DynamicResource AccentColorBrush}"/>
+                                <StackPanel Height="5"/>
+                                <CheckBox  HorizontalAlignment="Center" VerticalAlignment="Center" Checked="filterByCheckBoxChecking" Unchecked="filterByCheckBoxChecking" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridCheckBoxColumn.HeaderTemplate>
+                </DataGridCheckBoxColumn>
+                
+                <DataGridTextColumn Binding="{Binding uName}" ClipboardContentBinding="{x:Null}" Header="NAME" IsReadOnly="True" Width="110" FontSize="14">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                                <Separator BorderThickness="2" BorderBrush="{DynamicResource AccentColorBrush}"/>
+                                <TextBox x:Name="nameBox" Width="88" TextAlignment="Center" FontFamily="Segoe UI" FontSize="14" TextChanged="filterByTextInput"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding uDep}" ClipboardContentBinding="{x:Null}" Header="DEPARTMENT" IsReadOnly="True" Width="110" FontSize="14">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                                <Separator BorderThickness="2" BorderBrush="{DynamicResource AccentColorBrush}"/>
+                                <TextBox x:Name="depBox" Width="85" TextAlignment="Center" FontFamily="Segoe UI" FontSize="14" TextChanged="filterByTextInput"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Controls:MetroWindow>

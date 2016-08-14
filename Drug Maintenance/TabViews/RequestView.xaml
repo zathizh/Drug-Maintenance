@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="Drug_Maintenance.TabViews.RequestView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:Drug_Maintenance="clr-namespace:Drug_Maintenance"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             xmlns:Converters="http://metro.mahapps.com/winfx/xaml/shared"
+             xmlns:metro="clr-namespace:MahApps.Metro;assembly=MahApps.Metro"
+             RenderOptions.ClearTypeHint="Enabled"
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="650"
+             d:DesignWidth="1333"
+             d:DataContext="{d:DesignInstance Drug_Maintenance:MainWindowViewModel}"
+             Dialog:DialogParticipation.Register="{Binding}"
+             >
+    <Grid>
+        <DataGrid x:Name="requestDataGrid" HorizontalAlignment="Left" Margin="45,80,0,0" VerticalAlignment="Top" Width="500" Height="500" BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{x:Null}" CanUserResize="False" ClipboardContentBinding="{x:Null}" Width="5"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="ID" Width="80" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="GENATIC NAME" Width="175"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="TYPE" Width="100"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="DOSAGE" Width="100"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="QUANTITY" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="reqGenButton" Content="GENERATE" HorizontalAlignment="Left" Margin="150,600,0,0" VerticalAlignment="Top" Width="75" Foreground="{DynamicResource AccentColorBrush}" IsEnabled="False" Click="reqGenButton_Click"/>
+        <Button x:Name="reqAddButton" Content="ADD" HorizontalAlignment="Left" Margin="45,600,0,0" VerticalAlignment="Top" Width="75" Foreground="{DynamicResource AccentColorBrush}" Click="reqAddButton_Click"/>
+        <Button x:Name="reqEditButton" Content="EDIT" HorizontalAlignment="Left" Margin="250,600,0,0" VerticalAlignment="Top" Width="75" Foreground="{DynamicResource AccentColorBrush}" IsEnabled="False"/>
+        <Button x:Name="reqSubButton" Content="SUBMIT" HorizontalAlignment="Left" Margin="350,600,0,0" VerticalAlignment="Top" Width="75" Foreground="{DynamicResource AccentColorBrush}" IsEnabled="False"/>
+        <Button Content="VIEW" HorizontalAlignment="Left" Margin="450,600,0,0" VerticalAlignment="Top" Width="75" Foreground="{DynamicResource AccentColorBrush}" IsEnabled="False"/>
+        <Label x:Name="requestID" Content="Request ID : " HorizontalAlignment="Left" Margin="45,30,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="155,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <DataGrid x:Name="confirmedDataGrid" HorizontalAlignment="Left" Margin="776,80,0,0" VerticalAlignment="Top" Width="500" Height="500" BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{x:Null}" CanUserResize="False" ClipboardContentBinding="{x:Null}" Width="5"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="ID" Width="80" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="GENATIC NAME" Width="175"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="TYPE" Width="100"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="DOSAGE" Width="100"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="QUANTITY" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,12 @@
+﻿<Controls:MetroWindow x:Class="Drug_Maintenance.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        Title="About" Height="300" Width="300"
+        WindowStartupLocation="CenterScreen"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        BorderBrush="{DynamicResource AccentColorBrush}"
+        BorderThickness="1"
+        ResizeMode="NoResize">
+    <Grid/>
+</Controls:MetroWindow>

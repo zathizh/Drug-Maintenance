@@ -1,0 +1,116 @@
+﻿<Controls:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:Drug_Maintenance" x:Class="Drug_Maintenance.PharmaceuticalWindow"
+        Title="Pharmaceuticals"
+        Height="520"
+        Width="650"
+        BorderBrush="{DynamicResource AccentColorBrush}"
+        BorderThickness="1"
+        GlowBrush="{DynamicResource AccentColorBrush}" WindowStartupLocation="CenterScreen" ShowMaxRestoreButton="False" ShowMinButton="False" >
+    <Grid>
+        <Label Content="Pharmaceutical ID :" HorizontalAlignment="Left" Margin="50,20,0,0" VerticalAlignment="Top" Height="32" FontSize="16"/>
+        <Label Content="Category :" HorizontalAlignment="Left" Margin="50,65,0,0" VerticalAlignment="Top" Height="32" FontSize="16"/>
+        <Label Content="Genetic Name :" HorizontalAlignment="Left" Margin="50,110,0,0" VerticalAlignment="Top" Height="32" FontSize="16"/>
+        <TextBox x:Name="id" HorizontalAlignment="Left" Height="25" Margin="200,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Controls:TextBoxHelper.ClearTextButton="True" IsEnabled="False" TabIndex="0"/>
+        <TextBox x:Name="genName" HorizontalAlignment="Left" Height="25" Margin="200,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="410" Controls:TextBoxHelper.ClearTextButton="True" IsEnabled="False" TabIndex="4"/>
+        <ComboBox x:Name="category" HorizontalAlignment="Left" Margin="200,70,0,0" VerticalAlignment="Top" Width="170" Height="25" Controls:TextBoxHelper.ClearTextButton="True" SelectedValuePath="Content" IsEnabled="False" TabIndex="2" IsEditable="True">
+            <ComboBoxItem Content="CONSUMABLE"/>
+            <ComboBoxItem Content="NON CONSUMABLE"/>
+        </ComboBox>
+        <Label x:Name="idAlert" Content="" HorizontalAlignment="Left" Margin="200,0,0,0" VerticalAlignment="Top" FontSize="14" Foreground="Red"/>
+        <Label x:Name="genNameAlert" Content="" HorizontalAlignment="Left" Margin="200,90,0,0" VerticalAlignment="Top" FontSize="14" Foreground="Red"/>
+        <Button x:Name="addBtn" Content="ADD" HorizontalAlignment="Left" Margin="50,440,0,0" VerticalAlignment="Top" Width="70" Click="addBtn_Click" Foreground="{DynamicResource AccentColorBrush}" TabIndex="5"/>
+        <Button x:Name="editBtn" Content="EDIT" HorizontalAlignment="Left" Margin="144,440,0,0" VerticalAlignment="Top" Width="70" Click="editBtn_Click" IsEnabled="False" Foreground="{DynamicResource AccentColorBrush}" TabIndex="6"/>
+        <Button x:Name="saveBtn" Content="SAVE" HorizontalAlignment="Left" Margin="238,440,0,0" VerticalAlignment="Top" Width="70" Click="saveBtn_Click" IsEnabled="False" Foreground="{DynamicResource AccentColorBrush}" TabIndex="7"/>
+        <Button x:Name="updateBtn" Content="UPDATE" HorizontalAlignment="Left" Margin="332,440,0,0" VerticalAlignment="Top" Width="70" Click="updateBtn_Click" IsEnabled="False" Foreground="{DynamicResource AccentColorBrush}" TabIndex="8"/>
+        <Button x:Name="deleteBtn" Content="DELETE" HorizontalAlignment="Left" Margin="426,440,0,0" VerticalAlignment="Top" Width="70" Click="deleteBtn_Click" IsEnabled="False" Foreground="{DynamicResource AccentColorBrush}" TabIndex="9"/>
+        <Button x:Name="cancelBtn" Content="CANCEL" HorizontalAlignment="Left" Margin="520,440,0,0" VerticalAlignment="Top" Width="70" Click="cancelBtn_Click" IsEnabled="False" Foreground="{DynamicResource AccentColorBrush}" TabIndex="10"/>
+        <DataGrid x:Name="pharmaceuticalsDataGrid" AutoGenerateColumns="False" HorizontalAlignment="Center" Margin="0,170,0,0" VerticalAlignment="Top" Width="600" Height="240" SelectionUnit="FullRow" SelectionMode="Single" FontSize="14" SelectionChanged="pharmaceuticalsDataGrid_SelectionChanged" TabIndex="11" CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding id}" ClipboardContentBinding="{x:Null}" Header="ID" IsReadOnly="True" Width="80" CanUserResize="False">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                                <Separator BorderThickness="2" BorderBrush="{DynamicResource AccentColorBrush}"/>
+                                <TextBox x:Name="idBox" Width="65" TextAlignment="Center" FontFamily="Segoe UI" FontSize="14" TextChanged="filterByTextInput"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding type}" ClipboardContentBinding="{x:Null}" Header="TYPE" IsReadOnly="True" Width="100" CanUserResize="False">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                                <Separator BorderThickness="2" BorderBrush="{DynamicResource AccentColorBrush}"/>
+                                <ComboBox x:Name="typeCombo" Width="85" SelectionChanged="filterBySelectionChanged" IsEditable="True">
+                                    <ComboBoxItem Content="CAPSULE"/>
+                                    <ComboBoxItem Content="LIQUID"/>
+                                    <ComboBoxItem Content="POWDER"/>
+                                    <ComboBoxItem Content="SYRUP"/>
+                                    <ComboBoxItem Content="TABLET"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Binding="{Binding genName}" ClipboardContentBinding="{x:Null}" Header="NAME" IsReadOnly="True" Width="180">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                                <Separator BorderThickness="2" BorderBrush="{DynamicResource AccentColorBrush}"/>
+                                <TextBox x:Name="nameBox" Width="155" TextAlignment="Center" FontFamily="Segoe UI" FontSize="14" TextChanged="filterByTextInput"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                
+                <DataGridCheckBoxColumn Binding="{Binding countable}" CanUserResize="False" ClipboardContentBinding="{x:Null}" Header="COUNTABLE" Width="100" ElementStyle="{DynamicResource MetroDataGridCheckBox}" EditingElementStyle="{DynamicResource MetroDataGridCheckBox}" IsReadOnly="True">
+                    <DataGridCheckBoxColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" Height="50">
+                                <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                                <Separator BorderThickness="2" BorderBrush="{DynamicResource AccentColorBrush}"/>
+                                <StackPanel Height="5"/>
+                                <CheckBox  HorizontalAlignment="Center" VerticalAlignment="Center" Checked="filterByCheckBoxChecking" Unchecked="filterByCheckBoxChecking" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridCheckBoxColumn.HeaderTemplate>
+                </DataGridCheckBoxColumn>
+                
+                <DataGridTextColumn Binding="{Binding category}" ClipboardContentBinding="{x:Null}" Header="CATEGORY" IsReadOnly="True" Width="140" CanUserResize="False">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                                <Separator BorderThickness="2" BorderBrush="{DynamicResource AccentColorBrush}"/>
+                                <ComboBox x:Name="categoryCombo" Width="115" SelectionChanged="filterBySelectionChanged" IsEditable="True">
+                                    <ComboBoxItem Content="CONSUMABLE"/>
+                                    <ComboBoxItem Content="NON CONSUMABLE"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+        <CheckBox x:Name="countable" Content="Countable" HorizontalAlignment="Left" Margin="510,25,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Segoe UI" TabIndex="1" IsEnabled="False"/>
+        <Label x:Name="categoryAlert" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Margin="200,45,0,0" Foreground="Red"/>
+        <ComboBox x:Name="type" HorizontalAlignment="Left" Margin="460,70,0,0" VerticalAlignment="Top" Width="150" IsEnabled="False" SelectedValuePath="Content" IsEditable="True" TabIndex="3" Height="25" Controls:TextBoxHelper.ClearTextButton="True">
+            <ComboBoxItem Content="CAPSULE"/>
+            <ComboBoxItem Content="LIQUID"/>
+            <ComboBoxItem Content="POWDER"/>
+            <ComboBoxItem Content="SYRUP"/>
+            <ComboBoxItem Content="TABLET"/>
+        </ComboBox>
+        <Label Content="Type :" HorizontalAlignment="Left" Margin="400,65,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="typeAlert" Content="" HorizontalAlignment="Left" Margin="200,137,0,0" VerticalAlignment="Top" FontSize="14" Foreground="Red"/>
+
+    </Grid>
+</Controls:MetroWindow>
